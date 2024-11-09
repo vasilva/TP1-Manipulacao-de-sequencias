@@ -6,7 +6,7 @@ class LZW_Encoder:
     LZW encoder.
     """
 
-    def __init__(self, by="ascii"):
+    def __init__(self, by: str = "ascii") -> None:
         """
         Cria um encoder de LZW.
 
@@ -22,7 +22,7 @@ class LZW_Encoder:
             for i in range(256):
                 self.add_to_dictionary(chr(i))
 
-    def add_to_dictionary(self, word):
+    def add_to_dictionary(self, word: str) -> None:
         """
         Adiciona uma string ao dicionário.
 
@@ -32,7 +32,7 @@ class LZW_Encoder:
         self.dictionary += word
         self.next_code += 1
 
-    def encode(self, word, verbose=False):
+    def encode(self, word: str, verbose: bool = False) -> list[int]:
         """
         Codifica uma string.
 
@@ -41,7 +41,7 @@ class LZW_Encoder:
             verbose (bool): Se True, imprime os valores adicionados.
 
         Returns:
-            list: A lista de códigos.
+            r (list[int]): A lista de códigos.
         """
         r = []
         buffer = ""
@@ -70,7 +70,7 @@ class LZW_Decoder:
     LZW decoder.
     """
 
-    def __init__(self, by="ascii"):
+    def __init__(self, by: str = "ascii") -> None:
         """
         Cria um decoder de LZW.
 
@@ -86,7 +86,7 @@ class LZW_Decoder:
             for i in range(256):
                 self.add_to_dictionary(chr(i))
 
-    def add_to_dictionary(self, word):
+    def add_to_dictionary(self, word: str) -> None:
         """
         Adiciona uma string ao dicionário.
 
@@ -96,16 +96,16 @@ class LZW_Decoder:
         self.dictionary[self.next_code] = word
         self.next_code += 1
 
-    def decode(self, symbols, verbose=False):
+    def decode(self, symbols: list[int], verbose=False) -> str:
         """
         Decodifica uma lista de códigos.
 
         Args:
-            symbols (list): A lista de códigos.
+            symbols (list[int]): A lista de códigos.
             verbose (bool): Se True, imprime os valores adicionados.
 
         Returns:
-            str: A string decodificada.
+            r (str): A string decodificada.
         """
         last_symbol = symbols[0]
         r = self.dictionary[last_symbol]

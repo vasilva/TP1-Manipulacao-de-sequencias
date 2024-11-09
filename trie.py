@@ -212,7 +212,7 @@ class RadixTree:
         """
         return self.size
 
-    def sort(self, by="index") -> list[(str, int)]:
+    def sort(self, by: str = "index") -> list[(str, int)]:
         """
         >>> RadixTree().insert_many(["word1", "word0"])
         >>> RadixTree().sort(by="index")

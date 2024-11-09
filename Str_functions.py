@@ -1,6 +1,7 @@
 from lzw import *
 
-def str_to_bin(s):
+
+def str_to_bin(s: str):
     """
     Converte uma string em ASCII para uma string binária.
 
@@ -16,7 +17,7 @@ def str_to_bin(s):
     return bin
 
 
-def bin_to_str(bin):
+def bin_to_str(bin: str):
     """
     Converte uma string binária para uma string em ASCII.
 
@@ -24,7 +25,7 @@ def bin_to_str(bin):
         bin (str): A string binária a ser convertida.
 
     Returns:
-        s (str): A string.
+        s (str): A string em ASCII.
     """
     s = ""
     for i in range(0, len(bin), 8):
@@ -69,7 +70,8 @@ def decompress(bin: str, n_bits: int) -> list[int]:
         codes_list.append(int(bin[i : i + n_bits], 2))
     return codes_list
 
-def encoder(text: str, by='binary') -> tuple[str, int]:
+
+def encoder(text: str, by: str = "binary") -> tuple[str, int]:
     """
     Compacta um texto.
 
@@ -78,12 +80,13 @@ def encoder(text: str, by='binary') -> tuple[str, int]:
         by (str): 'binary' ou 'ascii'
 
     Returns:
-        tuple[str, int]: Texto compactado e número de bits.
+        compressed (str): Texto compactado
+        n_bits (int): O número de bits.
     """
     print(f"Encoding {by} text...")
     encoder = LZW_Encoder(by=by)
     t = text
-    if by == 'binary':
+    if by == "binary":
         t = str_to_bin(t)
 
     encoded = encoder.encode(t)
@@ -93,7 +96,8 @@ def encoder(text: str, by='binary') -> tuple[str, int]:
     print(f"Compression Ratio: {len(text)*8/len(compressed)}")
     return compressed, n_bits
 
-def decoder(codes, n_bits: int, by='binary') -> str:
+
+def decoder(codes: str, n_bits: int, by: str = "binary") -> str:
     """
     Descompacta um texto.
 
@@ -103,13 +107,13 @@ def decoder(codes, n_bits: int, by='binary') -> str:
         by (str): 'binary' ou 'ascii'
 
     Returns:
-        str: Texto descompactado.
+        decoded (str): Texto descompactado.
     """
     print(f"Decoding {by} text...")
     decoder = LZW_Decoder(by=by)
     c = decompress(codes, n_bits)
     decoded = decoder.decode(c)
-    if by == 'binary':
+    if by == "binary":
         decoded = bin_to_str(decoded)
     print(f"Compressed Size:   {len(codes)} bits")
     print(f"Original Size:     {len(decoded)*8} bits")
