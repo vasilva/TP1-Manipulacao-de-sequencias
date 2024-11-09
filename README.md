@@ -12,3 +12,8 @@
 ![Exemplo de Radix Tree](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/baixados.png)
 
 3. [functions.py](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/Str_functions.py): Um conjunto de funções auxiliares como conversão de String em ASCII para string binária, compressão e descompressão da lista de códigos de inteiro para binário.
+4. Na pasta [tests](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/tree/main/tests) há um conjunto de arquivos de entrada para a realização de testes.
+5. E na pasta [encoded](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/tree/main/encoded) contém os resultados dos testes feitos, que contém:
+* A lista de códigos, tanto como lista de inteiros e um número binário;
+* A quantidade de bits por código usado;
+* A comparação do tamanho do arquivo original e o tamanho comprimido, além da taxa de compressão.
