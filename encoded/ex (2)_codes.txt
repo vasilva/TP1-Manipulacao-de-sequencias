@@ -1,4 +1,4 @@
-Arquivo de entrada: ex (2).txt
+Arquivo de entrada: ex (2).txt (11743 bytes)
 Formato: ascii
 
 LZW Codes:

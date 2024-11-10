@@ -61,9 +61,6 @@ class LZW_Encoder:
 
         return r
 
-    def dictionary(self) -> RadixTree:
-        return self.dictionary
-
 
 class LZW_Decoder:
     """
@@ -128,6 +125,3 @@ class LZW_Decoder:
                 r += previous + to_add
             last_symbol = symbol
         return r
-
-    def dictionary(self) -> dict:
-        return self.dictionary

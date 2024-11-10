@@ -76,21 +76,34 @@ class RadixTree:
         """
         return self.find(word)[1]
 
-    def __getitem__(self, word: str) -> int:
+    def __getitem__(self, item: int | str) -> str | int:
         """
-        Retorna o índice de uma palavra na árvore.
+        Retorna a palavra de um índice da árvore.
+        Ou Retorna o índice de uma palavra.
 
         Args:
-            word (str): palavra a ser verificada.
+            item (int | str): índice ou palavra.
 
         Returns:
-            int: índice da palavra na árvore.
+            (str | int): a palavra ou índice da palavra na árvore.
 
         >>> RadixTree().insert("word")
+        >>> RadixTree()[0]
+        "word"
         >>> RadixTree()["word"]
         0
         """
-        return self.index(word)
+        if isinstance(item, int):
+            if item < 0 or item >= self.size:
+                raise IndexError("Index out of range")
+            for word, i in self.all_words().items():
+                if i == item:
+                    return word
+
+        if isinstance(item, str):
+            return self.index(item)
+        
+        return None
 
     def delete(self, word: str) -> bool:
         """
@@ -282,6 +295,7 @@ class RadixNode:
         # Solução: Definimos o nó atual como folha
         if self.prefix == word and not self.is_leaf:
             self.is_leaf = True
+            self.index = index
 
         # Caso 2: O nó não tem arestas que tenham um prefixo para a palavra
         # Solução: Criamos uma aresta do nó atual para um novo
@@ -310,6 +324,7 @@ class RadixNode:
 
                 if rest_word == "":
                     self.nodes[substring[0]].is_leaf = True
+                    self.nodes[substring[0]].index = index
                 else:
                     self.nodes[substring[0]].insert(rest_word, index)
 
@@ -372,7 +387,7 @@ class RadixNode:
             print(
                 "---" * height,
                 (
-                    f"{self.prefix}:    ({self.index})"
+                    f"{self.prefix}:  \t({self.index})"
                     if self.is_leaf
                     else f"{self.prefix}"
                 ),
