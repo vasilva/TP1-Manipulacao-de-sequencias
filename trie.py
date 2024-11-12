@@ -102,7 +102,7 @@ class RadixTree:
 
         if isinstance(item, str):
             return self.index(item)
-        
+
         return None
 
     def delete(self, word: str) -> bool:
