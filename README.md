@@ -16,7 +16,7 @@
 
 3.  [trie.py](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/trie.py): A estrutura de dados para a criação do dicionário. O tipo de árvore é a `RadixTree` ou árvore Trie compacta.
 
-![Exemplo de Radix Tree](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/baixados.png)
+![Exemplo de Radix Tree](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/trie.png)
 
 4. [functions.py](https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/Str_functions.py): Um conjunto de funções auxiliares como conversão de String em ASCII para string binária, compressão e descompressão da lista de códigos de inteiro para binário.
 
