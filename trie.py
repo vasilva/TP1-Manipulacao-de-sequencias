@@ -15,12 +15,12 @@ class RadixTree:
         # Próximo índice
         self.next_index = 0
 
-    def insert(self, word: str) -> None:
+    def insert(self, word):
         """
         Insere uma palavra na árvore.
 
         Args:
-            word (str): palavra a ser inserida.
+            word: palavra a ser inserida.
 
         >>> RadixTree().insert("word")
         """
@@ -29,24 +29,24 @@ class RadixTree:
         self.next_index += 1
         self.size += 1
 
-    def insert_many(self, words: list[str]) -> None:
+    def insert_many(self, words):
         """
         Insere várias palavras na árvore.
 
         Args:
-            words (list[str]): lista de palavras a serem inseridas.
+            words: lista de palavras a serem inseridas.
 
         >>> RadixTree().insert_many(["word1", "word2"])
         """
         for word in words:
             self.insert(word)
 
-    def find(self, word: str) -> tuple[bool, int]:
+    def find(self, word):
         """
         Verifica se uma palavra está na árvore e retorna seu índice.
 
         Args:
-            word (str): palavra a ser verificada.
+            word: palavra a ser verificada.
 
         Returns:
             bool: True se a palavra estiver na árvore,
@@ -60,12 +60,12 @@ class RadixTree:
         """
         return self.root.find(word)
 
-    def index(self, word: str) -> int:
+    def index(self, word):
         """
         Retorna o índice de uma palavra na árvore.
 
         Args:
-            word (str): palavra a ser verificada.
+            word: palavra a ser verificada.
 
         Returns:
             int: índice da palavra na árvore.
@@ -76,13 +76,13 @@ class RadixTree:
         """
         return self.find(word)[1]
 
-    def __getitem__(self, item: int | str) -> str | int:
+    def __getitem__(self, item):
         """
         Retorna a palavra de um índice da árvore.
         Ou Retorna o índice de uma palavra.
 
         Args:
-            item (int | str): índice ou palavra.
+            item: índice ou palavra.
 
         Returns:
             (str | int): a palavra ou índice da palavra na árvore.
@@ -105,12 +105,12 @@ class RadixTree:
 
         return None
 
-    def delete(self, word: str) -> bool:
+    def delete(self, word):
         """
         Deleta uma palavra da árvore.
 
         Args:
-            word (str): palavra a ser deletada.
+            word: palavra a ser deletada.
 
         Returns:
             bool: True caso a palavra esteja na árvore e for deletada,
@@ -125,7 +125,7 @@ class RadixTree:
             return True
         return False
 
-    def print_tree(self) -> None:
+    def print_tree(self):
         """
         Imprime a árvore.
 
@@ -137,12 +137,12 @@ class RadixTree:
         """
         self.root.print_tree()
 
-    def all_words(self) -> dict:
+    def all_words(self):
         """
         Retorna todas as palavras da árvore numa lista.
 
         Returns:
-            list[(str, int)]: lista de palavras e índices.
+            list: lista de palavras e índices.
 
         >>> RadixTree().insert_many(["word1", "word2"])
         >>> RadixTree().all_words()
@@ -150,14 +150,14 @@ class RadixTree:
         """
         return self.root.all_words()
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         """
         >>> RadixTree()
         'RadixTree(size=0)'
         """
         return f"RadixTree(size={self.size})"
 
-    def __str__(self) -> str:
+    def __str__(self):
         """
         >>> RadixTree().insert_many(["word1", "word2"])
         >>> print(RadixTree())
@@ -165,7 +165,7 @@ class RadixTree:
         """
         return self.all_words().__str__()
 
-    def __contains__(self, word: str) -> bool:
+    def __contains__(self, word):
         """
         >>> RadixTree().insert("word")
         >>> "word" in RadixTree()
@@ -181,7 +181,7 @@ class RadixTree:
         """
         return iter(self.all_words())
 
-    def __add__(self, word: str) -> None:
+    def __add__(self, word):
         """
         >>> RadixTree() + "word"
         >>> "word" in RadixTree()
@@ -189,7 +189,7 @@ class RadixTree:
         """
         self.insert(word)
 
-    def __iadd__(self, word: str):
+    def __iadd__(self, word):
         """
         >>> RadixTree() += "word"
         >>> "word" in RadixTree()
@@ -198,7 +198,7 @@ class RadixTree:
         self.insert(word)
         return self
 
-    def __sub__(self, word: str) -> bool:
+    def __sub__(self, word):
         """
         >>> RadixTree().insert("word")
         >>> RadixTree() - "word"
@@ -207,7 +207,7 @@ class RadixTree:
         """
         return self.delete(word)
 
-    def __isub__(self, word: str):
+    def __isub__(self, word):
         """
         >>> RadixTree().insert("word")
         >>> RadixTree() -= "word"
@@ -217,7 +217,7 @@ class RadixTree:
         self.delete(word)
         return self
 
-    def __len__(self) -> int:
+    def __len__(self):
         """
         >>> RadixTree().insert_many(["word1", "word2"])
         >>> len(RadixTree())
@@ -225,7 +225,7 @@ class RadixTree:
         """
         return self.size
 
-    def sort(self, by: str = "index") -> list[(str, int)]:
+    def sort(self, by="index"):
         """
         >>> RadixTree().insert_many(["word1", "word0"])
         >>> RadixTree().sort(by="index")
@@ -247,16 +247,14 @@ class RadixNode:
     Um nó da árvore de prefixos compacta.
     """
 
-    def __init__(
-        self, prefix: str = "", is_leaf: bool = False, index: int = None
-    ) -> None:
+    def __init__(self, prefix="", is_leaf=False, index=None):
         """
         Cria um nó da árvore de prefixos compacta.
 
         Args:
-            prefix (str): prefixo do nó.
-            is_leaf (bool): se o nó é uma folha.
-            index (int): índice da palavra adicionada
+            prefix: prefixo do nó.
+            is_leaf: se o nó é uma folha.
+            index: índice da palavra adicionada
 
         >>> RadixNode()
         >>> RadixNode("prefix")
@@ -268,12 +266,12 @@ class RadixNode:
         self.prefix = prefix
         self.index = index
 
-    def _match(self, word: str) -> tuple[str, str, str]:
+    def _match(self, word):
         """
         Calcula a substring comum do prefixo do nó e uma palavra.
 
         Args:
-            word (str): palavra para comparar.
+            word: palavra para comparar.
 
         Returns:
             (str, str, str): substring comum, prefixo restante, palavra restante.
@@ -290,7 +288,7 @@ class RadixNode:
 
         return self.prefix[:x], self.prefix[x:], word[x:]
 
-    def insert(self, word: str, index: int) -> None:
+    def insert(self, word, index):
         # Caso 1: Se a palavra for o prefixo do nó
         # Solução: Definimos o nó atual como folha
         if self.prefix == word and not self.is_leaf:
@@ -328,7 +326,7 @@ class RadixNode:
                 else:
                     self.nodes[substring[0]].insert(rest_word, index)
 
-    def find(self, word: str) -> tuple[bool, int]:
+    def find(self, word):
         new_node = self.nodes.get(word[0], None)
         if not new_node:
             return (False, -1)
@@ -344,7 +342,7 @@ class RadixNode:
             else:
                 return new_node.find(rest_word)
 
-    def delete(self, word: str) -> bool:
+    def delete(self, word):
         new_node = self.nodes.get(word[0], None)
         if not new_node:
             return False
@@ -382,7 +380,7 @@ class RadixNode:
                     new_node.nodes = merge_node.nodes
                 return True
 
-    def print_tree(self, height: int = 0) -> None:
+    def print_tree(self, height=0):
         if self.prefix != "":
             print(
                 "---" * height,
@@ -396,7 +394,7 @@ class RadixNode:
         for value in self.nodes.values():
             value.print_tree(height + 1)
 
-    def all_words(self) -> dict[int, str]:
+    def all_words(self):
         words = {}
         if self.is_leaf:
             words[self.prefix] = self.index

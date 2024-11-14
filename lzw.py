@@ -6,42 +6,35 @@ class LZW_Encoder:
     LZW encoder.
     """
 
-    def __init__(self, by: str = "ascii") -> None:
+    def __init__(self):
         """
         Cria um encoder de LZW.
-
-        Args:
-            by (str): O tipo de formato. Pode ser 'ascii' ou 'binary'.
         """
         self.next_code = 0
         self.dictionary = RadixTree()
-        if by == "binary":
-            self.add_to_dictionary("0")
-            self.add_to_dictionary("1")
-        else:
-            for i in range(256):
-                self.add_to_dictionary(chr(i))
+        for i in range(256):
+            self.add_to_dictionary(chr(i))
 
-    def add_to_dictionary(self, word: str) -> None:
+    def add_to_dictionary(self, word):
         """
         Adiciona uma string ao dicionário.
 
         Args:
-            word (str): A string a ser adicionada.
+            word: A string a ser adicionada.
         """
         self.dictionary += word
         self.next_code += 1
 
-    def encode(self, word: str, verbose: bool = False) -> list[int]:
+    def encode(self, word, verbose=False):
         """
         Codifica uma string.
 
         Args:
-            word (str): A string a ser codificada.
-            verbose (bool): Se True, imprime os valores adicionados.
+            word: A string a ser codificada.
+            verbose: Se True, imprime os valores adicionados.
 
         Returns:
-            r (list[int]): A lista de códigos.
+            r: A lista de códigos.
         """
         r = []
         buffer = ""
@@ -67,42 +60,35 @@ class LZW_Decoder:
     LZW decoder.
     """
 
-    def __init__(self, by: str = "ascii") -> None:
+    def __init__(self):
         """
         Cria um decoder de LZW.
-
-        Args:
-            by (str): O tipo de formato. Pode ser 'ascii' ou 'binary'.
         """
         self.next_code = 0
         self.dictionary = {}
-        if by == "binary":
-            self.add_to_dictionary("0")
-            self.add_to_dictionary("1")
-        else:
-            for i in range(256):
-                self.add_to_dictionary(chr(i))
+        for i in range(256):
+            self.add_to_dictionary(chr(i))
 
-    def add_to_dictionary(self, word: str) -> None:
+    def add_to_dictionary(self, word):
         """
         Adiciona uma string ao dicionário.
 
         Args:
-            word (str): A string a ser adicionada.
+            word: A string a ser adicionada.
         """
         self.dictionary[self.next_code] = word
         self.next_code += 1
 
-    def decode(self, symbols: list[int], verbose=False) -> str:
+    def decode(self, symbols, verbose=False):
         """
         Decodifica uma lista de códigos.
 
         Args:
-            symbols (list[int]): A lista de códigos.
-            verbose (bool): Se True, imprime os valores adicionados.
+            symbols: A lista de códigos.
+            verbose: Se True, imprime os valores adicionados.
 
         Returns:
-            r (str): A string decodificada.
+            r: A string decodificada.
         """
         last_symbol = symbols[0]
         r = self.dictionary[last_symbol]

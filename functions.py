@@ -1,50 +1,18 @@
 from lzw import *
 
 
-def str_to_bin(s: str):
-    """
-    Converte uma string em ASCII para uma string binária.
-
-    Args:
-        s (str): A string a ser convertida.
-
-    Returns:
-        bin (str): A string binária.
-    """
-    bin = ""
-    for c in s:
-        bin += format(ord(c), "b").zfill(8)
-    return bin
-
-
-def bin_to_str(bin: str):
-    """
-    Converte uma string binária para uma string em ASCII.
-
-    Args:
-        bin (str): A string binária a ser convertida.
-
-    Returns:
-        s (str): A string em ASCII.
-    """
-    s = ""
-    for i in range(0, len(bin), 8):
-        s += chr(int(bin[i : i + 8], 2))
-    return s
-
-
-def compress(codes_list: list[int], max_bits: int = None) -> tuple[str, int]:
+def compress(codes_list, max_bits=None):
     """
     Comprime uma lista de códigos.
 
     Args:
-        codes_list (list[int]): A lista de códigos.
-        max_bits (int): O número máximo de bits.
+        codes_list: A lista de códigos.
+        max_bits: O número máximo de bits.
         Se None, o número máximo de bits é calculado automaticamente.
 
     Returns:
-        bin (str): A string binária compacta.
-        max_bits (int): O número máximo de bits.
+        bin: A string binária compacta.
+        max_bits: O número máximo de bits.
     """
     if max_bits == None:
         max_bits = max(codes_list).bit_length()
@@ -54,16 +22,16 @@ def compress(codes_list: list[int], max_bits: int = None) -> tuple[str, int]:
     return bin, max_bits
 
 
-def decompress(bin: str, n_bits: int) -> list[int]:
+def decompress(bin, n_bits):
     """
     Descomprime uma string binária.
 
     Args:
-        bin (str): A string binária a ser descompactada.
-        n_bits (int): O número de bits por código.
+        bin: A string binária a ser descompactada.
+        n_bits: O número de bits por código.
 
     Returns:
-        codes_list (list[int]): A lista de códigos.
+        codes_list: A lista de códigos.
     """
     codes_list = []
     for i in range(0, len(bin), n_bits):
@@ -71,23 +39,20 @@ def decompress(bin: str, n_bits: int) -> list[int]:
     return codes_list
 
 
-def encoder(text: str, by: str = "binary") -> tuple[str, int]:
+def encoder(text):
     """
     Compacta um texto.
 
     Args:
-        text (str): Texto a ser compactado.
-        by (str): 'binary' ou 'ascii'
+        text: Texto a ser compactado.
 
     Returns:
-        compressed (str): Texto compactado
-        n_bits (int): O número de bits.
+        compressed: Texto compactado
+        n_bits: O número de bits.
     """
-    print(f"Encoding {by} text...")
-    encoder = LZW_Encoder(by=by)
+    print(f"Encoding text...")
+    encoder = LZW_Encoder()
     t = text
-    if by == "binary":
-        t = str_to_bin(t)
 
     encoded = encoder.encode(t)
     compressed, n_bits = compress(encoded)
@@ -97,24 +62,22 @@ def encoder(text: str, by: str = "binary") -> tuple[str, int]:
     return compressed, n_bits
 
 
-def decoder(codes: str, n_bits: int, by: str = "binary") -> str:
+def decoder(codes, n_bits):
     """
     Descompacta um texto.
 
     Args:
-        codes (str): Texto compactado.
-        n_bits (int): Número de bits por código.
-        by (str): 'binary' ou 'ascii'
+        codes: Texto compactado.
+        n_bits: Número de bits por código.
 
     Returns:
-        decoded (str): Texto descompactado.
+        decoded: Texto descompactado.
     """
-    print(f"Decoding {by} text...")
-    decoder = LZW_Decoder(by=by)
+    print(f"Decoding text...")
+    decoder = LZW_Decoder()
     c = decompress(codes, n_bits)
     decoded = decoder.decode(c)
-    if by == "binary":
-        decoded = bin_to_str(decoded)
+
     print(f"Compressed Size:   {len(codes)} bits")
     print(f"Original Size:     {len(decoded)*8} bits")
     print(f"Compression Ratio: {(len(decoded)*8)/len(codes)}")
