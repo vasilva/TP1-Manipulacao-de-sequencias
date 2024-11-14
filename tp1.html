@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Vinícius Alexandre da Silva">
 
-<title>Manipulação de Sequências</title>
+<title>Trabalho Prático I - Manipulação de Sequências</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,21 +38,43 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#arquivos" id="toc-arquivos" class="nav-link active" data-scroll-target="#arquivos">Arquivos</a>
+  <ul class="collapse">
+  <li><a href="#main.ipynb" id="toc-main.ipynb" class="nav-link" data-scroll-target="#main.ipynb">main.ipynb:</a></li>
+  <li><a href="#lzw.py" id="toc-lzw.py" class="nav-link" data-scroll-target="#lzw.py">lzw.py:</a></li>
+  <li><a href="#trie.py" id="toc-trie.py" class="nav-link" data-scroll-target="#trie.py">trie.py:</a></li>
+  <li><a href="#functions.py" id="toc-functions.py" class="nav-link" data-scroll-target="#functions.py">functions.py:</a></li>
+  <li><a href="#out.csv" id="toc-out.csv" class="nav-link" data-scroll-target="#out.csv">out.csv</a></li>
+  <li><a href="#tests" id="toc-tests" class="nav-link" data-scroll-target="#tests">tests</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Manipulação de Sequências</h1>
+<h1 class="title">Trabalho Prático I - Manipulação de Sequências</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vinícius Alexandre da Silva </p>
+          </div>
+  </div>
     
   
     
@@ -62,7 +85,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
+<section id="arquivos" class="level1">
+<h1>Arquivos</h1>
+<section id="main.ipynb" class="level2">
+<h2 class="anchored" data-anchor-id="main.ipynb"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/main.ipynb">main.ipynb</a>:</h2>
+<p>Notebook principal contendo o fluxo principal de codificação e decodificação. O processo é o seguinte:</p>
+<ul>
+<li>Lê o arquivo de entrada da pasta <a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/tree/main/tests">tests</a>;</li>
+<li>Faz a codificação, calculando seu tempo de computação;</li>
+<li>Faz a comparação entre os tamanhos do arquivo original e o resultado comprimido, os cálculos de taxa de compressão e tempo relativo ao tamanho da entrada;</li>
+<li>Grava os resultados no arquivo <a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/tree/main/out.csv">out.csv</a>.</li>
+</ul>
+</section>
+<section id="lzw.py" class="level2">
+<h2 class="anchored" data-anchor-id="lzw.py"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/lzw.py">lzw.py</a>:</h2>
+<p>Contém o codificador e decodificador nas classes <code>lzw_encoder</code>e <code>lzw_decoder</code>, ambos criam um dicionário que relaciona substrings com inteiros.</p>
+<ul>
+<li>O <code>encoder</code> lê um texto em ASCII ou uma string binária e cria uma lista de inteiros, que são os códigos.</li>
+<li>Esses códigos são a entrada para o <code>decoder</code> que os convertem para a string original do texto.</li>
+</ul>
+</section>
+<section id="trie.py" class="level2">
+<h2 class="anchored" data-anchor-id="trie.py"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/trie.py">trie.py</a>:</h2>
+<p>A estrutura de dados para a criação do dicionário. O tipo de árvore é a <code>RadixTree</code> ou árvore Trie compacta.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/vasilva/TP1-Manipulacao-de-sequencias/refs/heads/main/trie.png?token=GHSAT0AAAAAACZ35DP6YXY5O5NNCTANSFQ6ZZV777A" class="img-fluid figure-img"></p>
+<figcaption>Exemplo de Radix Tree</figcaption>
+</figure>
+</div>
+</section>
+<section id="functions.py" class="level2">
+<h2 class="anchored" data-anchor-id="functions.py"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/Str_functions.py">functions.py</a>:</h2>
+<p>Um conjunto de funções auxiliares como conversão de String em ASCII para string binária, compressão e descompressão da lista de códigos de inteiro para binário.</p>
+</section>
+<section id="out.csv" class="level2">
+<h2 class="anchored" data-anchor-id="out.csv"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/tree/main/out.csv">out.csv</a></h2>
+<p>Contém os resultados dos testes feitos, que contém:</p>
+<ul>
+<li>Nome do arquivo de teste;</li>
+<li>Tamanho do arquivo;</li>
+<li>Tamanho dos códigos;</li>
+<li>Tamanho do dicionário;</li>
+<li>A quantidade de bits por código usado;</li>
+<li>Taxa de compressão;</li>
+<li>Tempo de compressão;</li>
+<li>Tempo relativo ao tamanho do arquivo.</li>
+</ul>
+</section>
+<section id="tests" class="level2">
+<h2 class="anchored" data-anchor-id="tests"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/tree/main/tests">tests</a></h2>
+<p>A pasta onde contém o conjunto de arquivos de entrada para a realização de testes.</p>
+</section>
+</section>
 
 </main>
 <!-- /main column -->
