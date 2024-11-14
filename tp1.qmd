@@ -1,0 +1,7 @@
+---
+title: "Manipulação de Sequências"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
