@@ -104,22 +104,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -150,31 +136,14 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="fullcontent">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#arquivos" id="toc-arquivos" class="nav-link active" data-scroll-target="#arquivos">Arquivos</a>
-  <ul class="collapse">
-  <li><a href="#main.ipynb" id="toc-main.ipynb" class="nav-link" data-scroll-target="#main.ipynb">main.ipynb:</a></li>
-  <li><a href="#lzw.py" id="toc-lzw.py" class="nav-link" data-scroll-target="#lzw.py">lzw.py:</a></li>
-  <li><a href="#trie.py" id="toc-trie.py" class="nav-link" data-scroll-target="#trie.py">trie.py:</a></li>
-  <li><a href="#functions.py" id="toc-functions.py" class="nav-link" data-scroll-target="#functions.py">functions.py:</a></li>
-  <li><a href="#out.csv" id="toc-out.csv" class="nav-link" data-scroll-target="#out.csv">out.csv:</a></li>
-  <li><a href="#tests" id="toc-tests" class="nav-link" data-scroll-target="#tests">tests:</a></li>
-  </ul></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados">Análise de Dados</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -227,12 +196,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="trie.py"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/trie.py">trie.py</a>:</h2>
 <p>A estrutura de dados para a criação do dicionário. O tipo de árvore é a <code>RadixTree</code> ou árvore Trie compacta.</p>
 <p><img src="https://imgur.com/ydFCuZU.png" class="img-fluid"></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://imgur.com/HlML7fZ.png" class="img-fluid figure-img"></p>
-<figcaption>Exemplos de Radix Tree</figcaption>
-</figure>
-</div>
+<p><img src="https://imgur.com/HlML7fZ.png" class="img-fluid"> &gt; Exemplos de Radix Tree</p>
 </section>
 <section id="functions.py" class="level2">
 <h2 class="anchored" data-anchor-id="functions.py"><a href="https://github.com/vasilva/TP1-Manipulacao-de-sequencias/blob/main/Str_functions.py">functions.py</a>:</h2>
@@ -259,17 +223,14 @@ window.Quarto = {
 </section>
 <section id="análise-de-dados" class="level1">
 <h1>Análise de Dados</h1>
-<div id="cell-Dataframe_1" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"out.csv"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div id="dataframe_1" class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -414,7 +375,6 @@ window.Quarto = {
 
 <p>140 rows × 8 columns</p>
 </div>
-<p>Dados coletados nos testes</p>
 </div>
 </div>
 <p>Nesta tabela temos os dados dos testes rodados.</p>
@@ -423,14 +383,12 @@ window.Quarto = {
 <li><code>Tamanho original (bits)</code>: Tamanho do arquivo;</li>
 <li><code>Tamanho comprimido (bits)</code>: Tamanho dos códigos;</li>
 <li><code>Tamanho dicionário</code>: Quantidade de elementos no dicionário;</li>
-<li><code>Qtd de bits por código</code>: Número de bits para os códigos, calculado por <span class="math inline">bitlength(max(code))</span>;</li>
-<li><code>Taxa de compressão</code>: A razão entre os tamanhos do arquivo e dos códigos - <span class="math inline">Tamanho Original / Tamanho Comprimido</span>;</li>
+<li><code>Qtd de bits por código</code>: Número de bits para os códigos, calculado por <span class="math inline">\(bitlength(max(code))\)</span>;</li>
+<li><code>Taxa de compressão</code>: A razão entre os tamanhos do arquivo e dos códigos - <span class="math inline">\(Tamanho Original / Tamanho Comprimido\)</span>;</li>
 <li><code>Tempo de compressão</code>: Tempo de processamento, para cada arquivo foram feitas 20 compressões, para se ter um tempo médio com mais confiabilidade;</li>
 <li><code>Tempo relativo (ms/kB)</code>: Tempo de compressão pelo tamanho do arquivo de entrada.</li>
 </ul>
-<div id="cell-Graph_1" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="cell-4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"Tamanho Dicionário"</span>],</span>
@@ -443,19 +401,16 @@ window.Quarto = {
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Tamanho Original (bits)"</span>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Tamanho Original vs Tamanho Dicionário"</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
-<div id="graph_1" class="quarto-figure quarto-figure-center anchored">
+<div>
 <figure class="figure">
-<p><img src="tp1_files/figure-html/graph_1-output-1.png" width="693" height="524" class="figure-img"></p>
-<figcaption>O tamanho do dicionário tende a crescer linearmente com o tamanho do arquivo de entrada.</figcaption>
+<p><img src="Dataframe_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-Graph_2" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
+<p>O tamanho do dicionário tende a crescer linearmente com o tamanho do arquivo de entrada.</p>
+<div id="cell-6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"Tamanho Dicionário"</span>],</span>
@@ -468,19 +423,16 @@ window.Quarto = {
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Tamanho comprimido (bits)"</span>)</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Tamanho comprimido vs Tamanho Dicionário"</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
-<div id="graph_2" class="quarto-figure quarto-figure-center anchored">
+<div>
 <figure class="figure">
-<p><img src="tp1_files/figure-html/graph_2-output-1.png" width="684" height="524" class="figure-img"></p>
-<figcaption>Também há um crescimento linear com a saída comprimida.</figcaption>
+<p><img src="Dataframe_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-Histograms" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
+<p>Também há um crescimento linear com a saída comprimida.</p>
+<div id="cell-8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bootstrap_mean(data, num_samples<span class="op">=</span><span class="dv">10000</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(data)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    sample_means <span class="op">=</span> np.zeros(num_samples)</span>
@@ -503,19 +455,16 @@ window.Quarto = {
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    ax[i <span class="op">//</span> <span class="dv">2</span>, i <span class="op">%</span> <span class="dv">2</span>].set_xlim(<span class="dv">0</span>, <span class="dv">30</span>)</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
-<div id="histograms" class="quarto-figure quarto-figure-center anchored">
+<div>
 <figure class="figure">
-<p><img src="tp1_files/figure-html/histograms-output-1.png" width="567" height="1134" class="figure-img"></p>
-<figcaption>Esses são os tempos (ms) relativos ao tamanho do arquivo (kB), que tendem a serem consistentes, exceto alguns casos atípicos, que podem ser atribuídos a forma de medição do tempo.</figcaption>
+<p><img src="Dataframe_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-Dataframe_2" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
+<p>Esses são os tempos (ms) relativos ao tamanho do arquivo (kB), que tendem a serem consistentes, exceto alguns casos atípicos, que podem ser atribuídos a forma de medição do tempo.</p>
+<div id="cell-10" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tempos_relativos <span class="op">=</span> (</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    df[</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        [</span>
@@ -530,8 +479,7 @@ window.Quarto = {
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>tempos_relativos.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>tempos_relativos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div id="dataframe_2" class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -599,12 +547,9 @@ window.Quarto = {
 </table>
 
 </div>
-<p>Dados médios</p>
 </div>
 </div>
-<div id="cell-Graph_3" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="cell-11" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    tempos_relativos[<span class="st">"Tamanho original (bits)"</span>],</span>
@@ -617,19 +562,16 @@ window.Quarto = {
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Tempo Relativo (ms/kB)"</span>)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Tempo Relativo vs Tamanho original"</span>)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
-<div id="graph_3" class="quarto-figure quarto-figure-center anchored">
+<div>
 <figure class="figure">
-<p><img src="tp1_files/figure-html/graph_3-output-1.png" width="661" height="523" class="figure-img"></p>
-<figcaption>Com exceção de arquivos muito pequenos, o tempo relativo tende a ser constante com o tamanho do arquivo.</figcaption>
+<p><img src="Dataframe_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-Graph_4" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
+<p>Com exceção de arquivos muito pequenos, o tempo relativo tende a ser constante com o tamanho do arquivo.</p>
+<div id="cell-13" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    tempos_relativos[<span class="st">"Tamanho original (bits)"</span>],</span>
@@ -642,16 +584,19 @@ window.Quarto = {
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Taxa de compressão"</span>)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Tamanho Original vs Taxa de compressão"</span>)</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
-<div id="graph_4" class="quarto-figure quarto-figure-center anchored">
+<div>
 <figure class="figure">
-<p><img src="tp1_files/figure-html/graph_4-output-1.png" width="661" height="524" class="figure-img"></p>
-<figcaption><code>ex (2).txt</code> foi intencionalmente criado para ter uma alta taxa de compressão. <code>ex (1).txt</code> é um arquivo muito pequeno para ter compressão efetiva. Os outros arquivos têm uma taxa de compressão próxima de 2.</figcaption>
+<p><img src="Dataframe_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<ul>
+<li><code>ex (2).txt</code> foi intencionalmente criado para ter uma alta taxa de compressão.</li>
+<li><code>ex (1).txt</code> é um arquivo muito pequeno para ter compressão efetiva.</li>
+<li>Os outros arquivos têm uma taxa de compressão próxima de 2.</li>
+</ul>
 
 
 </section>

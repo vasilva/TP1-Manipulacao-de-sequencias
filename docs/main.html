@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Notebook Principal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-fb51bab490f8ff68e6b4fd5f0598c29b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Notebook Principal</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Contém os testes com a árvore trie, além de exemplos de compressão e decompressão</p>
+<div id="cell-2" class="cell" data-executioninfo="{&quot;elapsed&quot;:283,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1731421544532,&quot;user&quot;:{&quot;displayName&quot;:&quot;Vinícius Alexandre&quot;,&quot;userId&quot;:&quot;02678239040136017208&quot;},&quot;user_tz&quot;:180}" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> trie <span class="im">import</span> RadixTree</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lzw <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functions <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="função-para-escrever-os-códigos-criados-num-arquivo-de-texto" class="level1">
+<h1>Função para escrever os códigos criados num arquivo de texto</h1>
+</section>
+<section id="script-de-testes" class="level1">
+<h1>Script de testes</h1>
+<ol type="1">
+<li>Compressão:
+<ul>
+<li>Codificação de textos</li>
+<li>Criação de lista de códigos</li>
+<li>Compressão dos códigos em binário</li>
+<li>Comparação do tamanho dos textos com os códigos binários</li>
+<li>Taxa de compressão</li>
+<li>Tempo de compressão</li>
+</ul></li>
+<li>Decompressão
+<ul>
+<li>Decompressão dos códigos binários</li>
+<li>Decodificação dos códigos</li>
+<li>Comparação do texto decodificado com o arquivo original</li>
+<li>Tempo de decompressão</li>
+</ul></li>
+</ol>
+<div id="cell-5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compress_data(path, files):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>[</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Arquivo"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Tamanho original (bits)"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Tamanho comprimido (bits)"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Tamanho Dicionário"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Qtd de bits por código"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Taxa de compressão"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Tempo de compressão (ms)"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Tempo Relativo (ms/kB)"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> file_name <span class="kw">in</span> files:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> path <span class="op">+</span> <span class="st">"/"</span> <span class="op">+</span> file_name</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(f, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            s <span class="op">=</span> <span class="bu">file</span>.read()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            file_size <span class="op">=</span> <span class="bu">len</span>(s)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Arquivo de entrada: </span><span class="sc">{</span>file_name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Tamanho: </span><span class="sc">{</span><span class="bu">len</span>(s)<span class="sc">}</span><span class="ss"> bytes"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Repete 20 vezes</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            n_loops <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_loops):</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"Encode start: (</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>n_loops<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Codificação</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                start_time <span class="op">=</span> time.monotonic_ns()</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                encoder <span class="op">=</span> LZW_Encoder(by<span class="op">=</span><span class="bu">format</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                encoded <span class="op">=</span> encoder.encode(s)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>                compressed, n_bits <span class="op">=</span> compress(encoded)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                end_time <span class="op">=</span> time.monotonic_ns()</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Fim da codificação</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>                dictionary <span class="op">=</span> encoder.dictionary</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                dict_size <span class="op">=</span> <span class="bu">len</span>(dictionary)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>                compressed_size <span class="op">=</span> <span class="bu">len</span>(compressed)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>                compressed_rate <span class="op">=</span> file_size <span class="op">/</span> compressed_size</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>                code_time <span class="op">=</span> (end_time <span class="op">-</span> start_time) <span class="op">/</span> <span class="dv">1_000_000</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                rel_time <span class="op">=</span> code_time <span class="op">/</span> file_size</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"Encode end: </span><span class="sc">{</span>code_time<span class="sc">}</span><span class="ss"> ms"</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Dataframe</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>                df.loc[<span class="bu">len</span>(df)] <span class="op">=</span> [</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>                    file_name,  <span class="co"># Nome do arquivo</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>                    <span class="dv">8</span> <span class="op">*</span> file_size,  <span class="co"># Tamanho em bits</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">len</span>(compressed),  <span class="co"># Tamanho em bits</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>                    dict_size,  <span class="co"># Número de strings</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>                    n_bits,  <span class="co"># Bits por código</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>                    <span class="dv">8</span> <span class="op">*</span> compressed_rate,  <span class="co"># Taxa de compressão</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>                    code_time,  <span class="co"># Tempo em ms</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>                    <span class="dv">1024</span> <span class="op">*</span> rel_time,  <span class="co"># Tempo relativo em ms/kB</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>                ]</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Exemplo de uso.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Arquivos de entrada</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    n_files <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> <span class="st">"tests"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> [<span class="ss">f"ex (</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">).txt"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n_files <span class="op">+</span> <span class="dv">1</span>)]  <span class="co"># "ex (i).txt"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    files.append(<span class="st">"functions.py"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    files.append(<span class="st">"lzw.py"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    files.append(<span class="st">"trie.py"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Criação do Dataframe</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> compress_data(path, files)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    df.to_csv(<span class="st">"out.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-7" class="cell" data-executioninfo="{&quot;elapsed&quot;:675,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1731328934531,&quot;user&quot;:{&quot;displayName&quot;:&quot;Vinícius Alexandre&quot;,&quot;userId&quot;:&quot;02678239040136017208&quot;},&quot;user_tz&quot;:180}" data-outputid="606480ae-c094-43fc-e4a7-032bee7b1729" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--------------------------------------------------
+Arquivo de entrada: ex (1).txt
+Tamanho: 18 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 0.421227 ms
+Encode start: (2/20)
+Encode end: 0.33242 ms
+Encode start: (3/20)
+Encode end: 0.983119 ms
+Encode start: (4/20)
+Encode end: 0.363589 ms
+Encode start: (5/20)
+Encode end: 0.293871 ms
+Encode start: (6/20)
+Encode end: 0.295811 ms
+Encode start: (7/20)
+Encode end: 0.293191 ms
+Encode start: (8/20)
+Encode end: 0.28954 ms
+Encode start: (9/20)
+Encode end: 0.332359 ms
+Encode start: (10/20)
+Encode end: 0.32512 ms
+Encode start: (11/20)
+Encode end: 0.29473 ms
+Encode start: (12/20)
+Encode end: 0.30209 ms
+Encode start: (13/20)
+Encode end: 0.290891 ms
+Encode start: (14/20)
+Encode end: 0.290501 ms
+Encode start: (15/20)
+Encode end: 0.31235 ms
+Encode start: (16/20)
+Encode end: 0.294631 ms
+Encode start: (17/20)
+Encode end: 0.294221 ms
+Encode start: (18/20)
+Encode end: 0.294341 ms
+Encode start: (19/20)
+Encode end: 0.370848 ms
+Encode start: (20/20)
+Encode end: 0.300791 ms
+--------------------------------------------------
+Arquivo de entrada: ex (2).txt
+Tamanho: 11743 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 48.311475 ms
+Encode start: (2/20)
+Encode end: 51.231582 ms
+Encode start: (3/20)
+Encode end: 49.671858 ms
+Encode start: (4/20)
+Encode end: 51.380493 ms
+Encode start: (5/20)
+Encode end: 47.987965 ms
+Encode start: (6/20)
+Encode end: 65.70974 ms
+Encode start: (7/20)
+Encode end: 51.467085 ms
+Encode start: (8/20)
+Encode end: 49.526107 ms
+Encode start: (9/20)
+Encode end: 56.226188 ms
+Encode start: (10/20)
+Encode end: 48.838534 ms
+Encode start: (11/20)
+Encode end: 59.536606 ms
+Encode start: (12/20)
+Encode end: 51.245624 ms
+Encode start: (13/20)
+Encode end: 50.430165 ms
+Encode start: (14/20)
+Encode end: 53.55974 ms
+Encode start: (15/20)
+Encode end: 47.494669 ms
+Encode start: (16/20)
+Encode end: 65.257262 ms
+Encode start: (17/20)
+Encode end: 51.129237 ms
+Encode start: (18/20)
+Encode end: 55.370643 ms
+Encode start: (19/20)
+Encode end: 62.755672 ms
+Encode start: (20/20)
+Encode end: 51.759708 ms
+--------------------------------------------------
+Arquivo de entrada: ex (3).txt
+Tamanho: 8971 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 36.740512 ms
+Encode start: (2/20)
+Encode end: 31.775135 ms
+Encode start: (3/20)
+Encode end: 33.928508 ms
+Encode start: (4/20)
+Encode end: 34.066216 ms
+Encode start: (5/20)
+Encode end: 48.935378 ms
+Encode start: (6/20)
+Encode end: 35.413554 ms
+Encode start: (7/20)
+Encode end: 32.189599 ms
+Encode start: (8/20)
+Encode end: 31.673038 ms
+Encode start: (9/20)
+Encode end: 32.199432 ms
+Encode start: (10/20)
+Encode end: 34.978595 ms
+Encode start: (11/20)
+Encode end: 36.727479 ms
+Encode start: (12/20)
+Encode end: 39.124328 ms
+Encode start: (13/20)
+Encode end: 34.51859 ms
+Encode start: (14/20)
+Encode end: 50.001666 ms
+Encode start: (15/20)
+Encode end: 33.397616 ms
+Encode start: (16/20)
+Encode end: 32.458646 ms
+Encode start: (17/20)
+Encode end: 31.771168 ms
+Encode start: (18/20)
+Encode end: 35.023193 ms
+Encode start: (19/20)
+Encode end: 31.772918 ms
+Encode start: (20/20)
+Encode end: 32.815585 ms
+--------------------------------------------------
+Arquivo de entrada: ex (4).txt
+Tamanho: 2052 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 13.513721 ms
+Encode start: (2/20)
+Encode end: 13.947618 ms
+Encode start: (3/20)
+Encode end: 13.493161 ms
+Encode start: (4/20)
+Encode end: 13.794832 ms
+Encode start: (5/20)
+Encode end: 13.961286 ms
+Encode start: (6/20)
+Encode end: 13.971166 ms
+Encode start: (7/20)
+Encode end: 13.679137 ms
+Encode start: (8/20)
+Encode end: 13.889858 ms
+Encode start: (9/20)
+Encode end: 16.258022 ms
+Encode start: (10/20)
+Encode end: 14.250553 ms
+Encode start: (11/20)
+Encode end: 13.962016 ms
+Encode start: (12/20)
+Encode end: 14.444196 ms
+Encode start: (13/20)
+Encode end: 14.43342 ms
+Encode start: (14/20)
+Encode end: 14.364844 ms
+Encode start: (15/20)
+Encode end: 13.892274 ms
+Encode start: (16/20)
+Encode end: 13.789216 ms
+Encode start: (17/20)
+Encode end: 17.526332 ms
+Encode start: (18/20)
+Encode end: 19.492316 ms
+Encode start: (19/20)
+Encode end: 14.393454 ms
+Encode start: (20/20)
+Encode end: 14.572427 ms
+--------------------------------------------------
+Arquivo de entrada: functions.py
+Tamanho: 3053 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 13.921113 ms
+Encode start: (2/20)
+Encode end: 12.007911 ms
+Encode start: (3/20)
+Encode end: 34.384233 ms
+Encode start: (4/20)
+Encode end: 11.074481 ms
+Encode start: (5/20)
+Encode end: 11.143669 ms
+Encode start: (6/20)
+Encode end: 10.811107 ms
+Encode start: (7/20)
+Encode end: 11.217007 ms
+Encode start: (8/20)
+Encode end: 11.179018 ms
+Encode start: (9/20)
+Encode end: 11.558914 ms
+Encode start: (10/20)
+Encode end: 11.404191 ms
+Encode start: (11/20)
+Encode end: 11.277639 ms
+Encode start: (12/20)
+Encode end: 10.78496 ms
+Encode start: (13/20)
+Encode end: 11.025561 ms
+Encode start: (14/20)
+Encode end: 11.669857 ms
+Encode start: (15/20)
+Encode end: 11.476918 ms
+Encode start: (16/20)
+Encode end: 11.731309 ms
+Encode start: (17/20)
+Encode end: 11.490282 ms
+Encode start: (18/20)
+Encode end: 10.763871 ms
+Encode start: (19/20)
+Encode end: 11.529775 ms
+Encode start: (20/20)
+Encode end: 10.950115 ms
+--------------------------------------------------
+Arquivo de entrada: lzw.py
+Tamanho: 3627 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 16.529909 ms
+Encode start: (2/20)
+Encode end: 15.080859 ms
+Encode start: (3/20)
+Encode end: 15.764029 ms
+Encode start: (4/20)
+Encode end: 14.44583 ms
+Encode start: (5/20)
+Encode end: 28.843409 ms
+Encode start: (6/20)
+Encode end: 14.183998 ms
+Encode start: (7/20)
+Encode end: 14.389654 ms
+Encode start: (8/20)
+Encode end: 14.034774 ms
+Encode start: (9/20)
+Encode end: 14.368203 ms
+Encode start: (10/20)
+Encode end: 14.524151 ms
+Encode start: (11/20)
+Encode end: 14.308417 ms
+Encode start: (12/20)
+Encode end: 13.96307 ms
+Encode start: (13/20)
+Encode end: 14.648257 ms
+Encode start: (14/20)
+Encode end: 14.680564 ms
+Encode start: (15/20)
+Encode end: 14.753923 ms
+Encode start: (16/20)
+Encode end: 14.572163 ms
+Encode start: (17/20)
+Encode end: 14.774733 ms
+Encode start: (18/20)
+Encode end: 19.103614 ms
+Encode start: (19/20)
+Encode end: 16.64832 ms
+Encode start: (20/20)
+Encode end: 14.651567 ms
+--------------------------------------------------
+Arquivo de entrada: trie.py
+Tamanho: 12424 bytes
+--------------------------------------------------
+Encode start: (1/20)
+Encode end: 57.330306 ms
+Encode start: (2/20)
+Encode end: 54.54507 ms
+Encode start: (3/20)
+Encode end: 71.110143 ms
+Encode start: (4/20)
+Encode end: 52.496038 ms
+Encode start: (5/20)
+Encode end: 55.449839 ms
+Encode start: (6/20)
+Encode end: 52.682682 ms
+Encode start: (7/20)
+Encode end: 55.967342 ms
+Encode start: (8/20)
+Encode end: 51.165711 ms
+Encode start: (9/20)
+Encode end: 52.60853 ms
+Encode start: (10/20)
+Encode end: 56.942974 ms
+Encode start: (11/20)
+Encode end: 58.138041 ms
+Encode start: (12/20)
+Encode end: 59.105188 ms
+Encode start: (13/20)
+Encode end: 71.97067 ms
+Encode start: (14/20)
+Encode end: 54.36398 ms
+Encode start: (15/20)
+Encode end: 52.687624 ms
+Encode start: (16/20)
+Encode end: 51.57469 ms
+Encode start: (17/20)
+Encode end: 52.92322 ms
+Encode start: (18/20)
+Encode end: 54.921539 ms
+Encode start: (19/20)
+Encode end: 54.346404 ms
+Encode start: (20/20)
+Encode end: 53.41289 ms
+        Arquivo  Tamanho original (bits)  Tamanho comprimido (bits)  \
+0    ex (1).txt                      144                        144   
+1    ex (1).txt                      144                        144   
+2    ex (1).txt                      144                        144   
+3    ex (1).txt                      144                        144   
+4    ex (1).txt                      144                        144   
+..          ...                      ...                        ...   
+135     trie.py                    99392                      38316   
+136     trie.py                    99392                      38316   
+137     trie.py                    99392                      38316   
+138     trie.py                    99392                      38316   
+139     trie.py                    99392                      38316   
+
+     Tamanho Dicionário  Qtd de bits por código  Taxa de compressão  \
+0                   271                       9            1.000000   
+1                   271                       9            1.000000   
+2                   271                       9            1.000000   
+3                   271                       9            1.000000   
+4                   271                       9            1.000000   
+..                  ...                     ...                 ...   
+135                3448                      12            2.594008   
+136                3448                      12            2.594008   
+137                3448                      12            2.594008   
+138                3448                      12            2.594008   
+139                3448                      12            2.594008   
+
+     Tempo de compressão (ms)  Tempo Relativo (ms/kB)  
+0                    0.421227               23.963136  
+1                    0.332420               18.911004  
+2                    0.983119               55.928548  
+3                    0.363589               20.684174  
+4                    0.293871               16.717995  
+..                        ...                     ...  
+135                 51.574690                4.250844  
+136                 52.923220                4.361991  
+137                 54.921539                4.526695  
+138                 54.346404                4.479292  
+139                 53.412890                4.402350  
+
+[140 rows x 8 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="testes-de-decodificação" class="level1">
+<h1>Testes de Decodificação</h1>
+<div id="cell-9" class="cell" data-executioninfo="{&quot;elapsed&quot;:313,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1731421550768,&quot;user&quot;:{&quot;displayName&quot;:&quot;Vinícius Alexandre&quot;,&quot;userId&quot;:&quot;02678239040136017208&quot;},&quot;user_tz&quot;:180}" data-outputid="c2d82897-5acf-4812-f309-35f357ce8736" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> [<span class="st">"ex (3).txt"</span>, <span class="st">"functions.py"</span>, <span class="st">"trie.py"</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> LZW_Encoder()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>decoder <span class="op">=</span> LZW_Decoder()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> file_name <span class="kw">in</span> files:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">"tests/"</span> <span class="op">+</span> file_name, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> <span class="bu">file</span>.read()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        encoded <span class="op">=</span> encoder.encode(s)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        compressed, n_bits <span class="op">=</span> compress(encoded)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        decoded <span class="op">=</span> decompress(compressed, n_bits)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> decoder.decode(decoded)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(file_name)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(text)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--------------------------------------------------
+ex (3).txt
+--------------------------------------------------
+UNIVERSIDADE FEDERAL DE MINAS GERAIS
+Instituto de Ciências Exatas
+Departamento de Ciência da Computação
+
+DCC207 -- Algoritmos 2
+Prof. Renato Vimieiro
+
+Trabalho Prático 1 -- Manipulação de sequências
+
+Objetivos
+
+Nesse trabalho serão abordados os aspectos práticos de manipulação de sequências. Especificamente, serão explorados aspectos de implementação de árvores de prefixo aplicada ao problema de compressão de arquivos.
+
+O objetivo secundário é fixar o conteúdo. Entende-se que ao implementar a estrutura o aluno conseguirá compreender melhor os conceitos explorados. Dessa forma, o conteúdo teórico será melhor absorvido e fixado. Além disso, os alunos terão a oportunidade de ver conceitos não abordados na disciplina, no caso específico, um método de compressão de arquivos.
+
+Tarefas
+
+Os alunos deverão implementar um algoritmo para resolver o problema de 
+compressão de arquivos através do método Lempel-Ziv-Welch (LZW). Esse método é baseado em dicionários e, basicamente, substitui strings que se repetem no texto por códigos. Como o algoritmo executa muitas buscas e inserções nesse dicionário, é comum utilizar árvores de prefixo na sua implementação, como discutido por Salomon em seu livro (ver referências). O LZW, apesar de simples, é utilizado em várias ferramentas de compressão, e em alguns tipos de arquivo. O exemplo mais conhecido, talvez, é o formato GIF que utiliza o algoritmo na compressão das imagens. O método foi patenteado e houve muita discussão no passado sobre seu uso na transmissão de imagens via internet. Dada sua eficiência e apelo prático, estudaremos esse algoritmo no trabalho prático, com o foco na sua implementação, mais precisamente, em como as estruturas vistas em sala podem ser usadas para viabilizar o algoritmo. A seguir é apresentada uma breve descrição do LZW e da tarefa.
+
+O LZW foi proposto por Terry Welch em 1984 como uma implementação eficiente do método LZ78 proposto por Lempel e Ziv em 1978. Como dito, a ideia central do algoritmo é substituir strings que se repetem no texto por códigos, diminuindo assim o número de bytes gravados na saída. O algoritmo inicia gerando um dicionário contendo o código para todos os símbolos do alfabeto em questão. Conforme a proposta original, esse dicionário possui inicialmente 256 entradas referentes aos símbolos da tabela ASCII. Em seguida, o algoritmo consome símbolos do arquivo de entrada um-a-um. Ao ler um novo símbolo x, o algoritmo concatena x a uma string I, lida anteriormente, e verifica se a string Ix já foi armazenada no dicionário. Caso ela já tenha sido armazenada, o algoritmo atualiza a string I com a nova string Ix, e repete o processo. Caso a string Ix não tenha sido armazenada ainda, o algoritmo imprime o código referente a I no arquivo de saída, insere a string Ix associada a um novo código (sequencial) no dicionário, atualiza I com x, e repete o processo. Esse processo é 
+repetido enquanto ainda houver símbolos na entrada.
+
+A descompressão segue um processo análogo. O dicionário agora é inicializado com códigos associados aos símbolos do alfabeto. O algoritmo então consome códigos do arquivo de entrada (comprimido) um-a-um. Ao ler um código, o algoritmo verifica se esse já foi inserido no dicionário. Caso tenha sido, o primeiro símbolo dessa string é concatenado a string anterior, o resultado é adicionado ao dicionário, caso já não esteja, e impresso na saída. Finalmente, a string anterior é atualizada com a string 
+recuperado pelo código e o processo se repete. Caso o código não esteja no dicionário, a string é concatenada ao seu primeiro símbolo, o resultado é adicionado ao dicionário e impresso na saída.
+
+Uma descrição mais detalhada dos processos de compressão e descompressão pode ser obtida nas referências listadas ao final desse documento.
+
+O código usado no LZW pode ter tamanho fixo ou variável. Em implementações com tamanho fixo, o número de bits usados é fixado antes do início da compressão. Essa é a abordagem proposta inicialmente para implementar o algoritmo. Sua intenção era limitar o uso de memória pelo algoritmo, já que, o tamanho do dicionário fica limitado ao número máximo de códigos possíveis. Usualmente, eram usados 12 bits na codificação, mas há implementações mais recentes com 15 ou 16 bits. Outra possibilidade é usar uma implementação com tamanho variável. Nesse caso, inicia-se a compressão com 9 bits (a tabela de códigos iniciais é fixa em 8 bits pela codificação 
+ASCII) e o tamanho é incrementado bit a bit à medida que mais códigos são 
+necessários. Em implementações de tamanho variável também se adota um tamanho máximo para o número de bits pelas mesmas razões da abordagem fixa. É importante lembrar que, nesse caso, o decodificador deve estar atento às mudanças de tamanho do código durante a leitura dos mesmos.
+
+Outro ponto em relação à implementação do algoritmo diz respeito à escolha da estrutura de dados utilizada para o dicionário. Diversos trabalhos apontam que a implementação se beneficia de árvores de prefixo (Tries) para essa função.
+Nesse trabalho, você deverá implementar as duas versões do algoritmo LZW discutidas acima. As implementações podem ser feitas em C/C++ ou Python (preferencialmente). Além da implementação do codificador e decodificador do LZW, você também deverá implementar o dicionário usado pelos métodos. Sua implementação deve ser a de uma árvore de prefixo. Como o codificador associa string -&gt; inteiro, e o decodificador inteiro -&gt; string, você deverá implementar uma trie compacta baseada nas strings binárias dos códigos ou texto. As implementações das árvores devem ser completas, incluindo pesquisa, inclusões e remoções de elementos.
+
+Sua implementação deverá receber os parâmetros pela linha de comando (como 
+métodos no Linux). Caso o número de bits máximo não seja informado (parâmetro opcional), deve-se assumir o padrão de 12 bits em ambas as versões. No caso da versão de tamanho fixo, esse é o tamanho fixo a ser usado.
+
+Você também deverá implementar uma opção de teste em que o programa 
+armazenará estatísticas da codificação/decodificação. Essas estatísticas deverão conter a taxa de compressão ao longo do processamento dos arquivos, tamanho do dicionário (número de elementos armazenados e espaço em memória), tempo total de execução, e outras estatísticas que você julgar importantes. Essas estatísticas deverão ser processadas por um outro script que irá gerar um relatório (gráficos, tabelas, etc.) do processo.
+
+Por fim, você deverá realizar testes de funcionamento e desempenho do método implementado com diferentes tipos de dados. Deverão ser usados arquivos texto, imagens (em bitmap) e qualquer outro formato de entrada não comprimido para avaliar o algoritmo. Deverão ser gerados os relatórios como descrito no parágrafo anterior. Esses relatórios serão agregados e analisados em um relatório final.
+
+O relatório final deve ser feito em formato de página/blog e deverá ser publicado junto com o código em repositório aberto no GitHub. O relatório deverá conter uma explicação com a suas palavras sobre os métodos e as implementações. Deverão ser dados exemplos de funcionamento de compressão e descompressão de texto. Você também deve apresentar a análise dos resultados obtidos com os testes realizados. O nível de elaboração do texto e qualidade das análises serão critérios de avaliação. Em outras palavras, o mesmo cuidado com a implementação deverá ser observado nos testes realizados e no relatório produzido.
+
+O trabalho poderá ser feito em grupos de até dois alunos.
+
+O que entregar?
+
+Deverá ser entregue um repositório no GitHub contendo todos os arquivos criados na implementação da ferramenta, bem como exemplos usados na explicação. O link para o repositório deverá ser postado no Moodle. O repositório deverá ser mantido privado até 3 dias após a data de entrega. Então, o repositório deverá ser tornado público. Caso a qualidade do trabalho exceda às expectativas do professor, pontos extras 
+poderão ser atribuídos.
+
+Política de Plágio 
+
+Os alunos podem, e devem, discutir soluções sempre que necessário. Dito isso, há uma diferença bem grande entre implementação de soluções similares e cópia integral de ideias. Trabalhos copiados na íntegra ou em partes de outros alunos e/ou da internet serão prontamente anulados. Caso haja dois trabalhos copiados por alunos/grupos diferentes, ambos serão anulados. 
+
+Datas
+
+Entrega: 19/11/2024 às 23h59
+
+Política de atraso
+
+Haverá tolerância de 30min na entrega dos trabalhos. Submissões feitas depois do intervalo de tolerância serão penalizados, incluindo mudanças no repositório.
+- Atraso de 1 dia: 30%
+- Atraso de 2 dias: 50%
+- Atraso de 3+ dias: não aceito
+
+Serão considerados atrasos de 1 dia aqueles feitos após as 0h30 do dia seguinte à entrega (sexta-feira). A partir daí serão contados o número de dias passados da data de entrega.
+
+Referências
+- https://web.mit.edu/6.02/www/s2012/handouts/3.pdf
+- https://www.davidsalomon.name/DC4advertis/DComp4Ad.html
+
+
+--------------------------------------------------
+functions.py
+--------------------------------------------------
+from lzw import *
+
+
+def str_to_bin(s: str):
+    """
+    Converte uma string em ASCII para uma string binária.
+
+    Args:
+        s (str): A string a ser convertida.
+
+    Returns:
+        bin (str): A string binária.
+    """
+    bin = ""
+    for c in s:
+        bin += format(ord(c), "b").zfill(8)
+    return bin
+
+
+def bin_to_str(bin: str):
+    """
+    Converte uma string binária para uma string em ASCII.
+
+    Args:
+        bin (str): A string binária a ser convertida.
+
+    Returns:
+        s (str): A string em ASCII.
+    """
+    s = ""
+    for i in range(0, len(bin), 8):
+        s += chr(int(bin[i : i + 8], 2))
+    return s
+
+
+def compress(codes_list: list[int], max_bits: int = None) -&gt; tuple[str, int]:
+    """
+    Comprime uma lista de códigos.
+
+    Args:
+        codes_list (list[int]): A lista de códigos.
+        max_bits (int): O número máximo de bits.
+        Se None, o número máximo de bits é calculado automaticamente.
+
+    Returns:
+        bin (str): A string binária compacta.
+        max_bits (int): O número máximo de bits.
+    """
+    if max_bits == None:
+        max_bits = max(codes_list).bit_length()
+    bin = ""
+    for i in codes_list:
+        bin += format(i, "b").zfill(max_bits)
+    return bin, max_bits
+
+
+def decompress(bin: str, n_bits: int) -&gt; list[int]:
+    """
+    Descomprime uma string binária.
+
+    Args:
+        bin (str): A string binária a ser descompactada.
+        n_bits (int): O número de bits por código.
+
+    Returns:
+        codes_list (list[int]): A lista de códigos.
+    """
+    codes_list = []
+    for i in range(0, len(bin), n_bits):
+        codes_list.append(int(bin[i : i + n_bits], 2))
+    return codes_list
+
+
+def encoder(text: str, by: str = "binary") -&gt; tuple[str, int]:
+    """
+    Compacta um texto.
+
+    Args:
+        text (str): Texto a ser compactado.
+        by (str): 'binary' ou 'ascii'
+
+    Returns:
+        compressed (str): Texto compactado
+        n_bits (int): O número de bits.
+    """
+    print(f"Encoding {by} text...")
+    encoder = LZW_Encoder(by=by)
+    t = text
+    if by == "binary":
+        t = str_to_bin(t)
+
+    encoded = encoder.encode(t)
+    compressed, n_bits = compress(encoded)
+    print(f"Original Size:     {len(text)*8} bits")
+    print(f"Compressed Size:   {len(compressed)} bits")
+    print(f"Compression Ratio: {len(text)*8/len(compressed)}")
+    return compressed, n_bits
+
+
+def decoder(codes: str, n_bits: int, by: str = "binary") -&gt; str:
+    """
+    Descompacta um texto.
+
+    Args:
+        codes (str): Texto compactado.
+        n_bits (int): Número de bits por código.
+        by (str): 'binary' ou 'ascii'
+
+    Returns:
+        decoded (str): Texto descompactado.
+    """
+    print(f"Decoding {by} text...")
+    decoder = LZW_Decoder(by=by)
+    c = decompress(codes, n_bits)
+    decoded = decoder.decode(c)
+    if by == "binary":
+        decoded = bin_to_str(decoded)
+    print(f"Compressed Size:   {len(codes)} bits")
+    print(f"Original Size:     {len(decoded)*8} bits")
+    print(f"Compression Ratio: {(len(decoded)*8)/len(codes)}")
+    return decoded
+
+
+
+--------------------------------------------------
+trie.py
+--------------------------------------------------
+class RadixTree:
+    """
+    Uma árvore de prefixos compacta.
+    """
+
+    def __init__(self) -&gt; None:
+        """
+        Cria uma árvore de prefixos compacta vazia.
+        &gt;&gt;&gt; RadixTree()
+        """
+        # O nó raiz da árvore
+        self.root = RadixNode()
+        # O número de palavras na árvore
+        self.size = 0
+        # Próximo índice
+        self.next_index = 0
+
+    def insert(self, word: str) -&gt; None:
+        """
+        Insere uma palavra na árvore.
+
+        Args:
+            word (str): palavra a ser inserida.
+
+        &gt;&gt;&gt; RadixTree().insert("word")
+        """
+        index = self.next_index
+        self.root.insert(word, index)
+        self.next_index += 1
+        self.size += 1
+
+    def insert_many(self, words: list[str]) -&gt; None:
+        """
+        Insere várias palavras na árvore.
+
+        Args:
+            words (list[str]): lista de palavras a serem inseridas.
+
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word2"])
+        """
+        for word in words:
+            self.insert(word)
+
+    def find(self, word: str) -&gt; tuple[bool, int]:
+        """
+        Verifica se uma palavra está na árvore e retorna seu índice.
+
+        Args:
+            word (str): palavra a ser verificada.
+
+        Returns:
+            bool: True se a palavra estiver na árvore,
+                  False caso contrário.
+            int: Índice da palavra,
+                 -1 caso a palavra não encontrada.
+
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; RadixTree().find("word")
+        (True, 0)
+        """
+        return self.root.find(word)
+
+    def index(self, word: str) -&gt; int:
+        """
+        Retorna o índice de uma palavra na árvore.
+
+        Args:
+            word (str): palavra a ser verificada.
+
+        Returns:
+            int: índice da palavra na árvore.
+
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; RadixTree().index("word")
+        0
+        """
+        return self.find(word)[1]
+
+    def __getitem__(self, item: int | str) -&gt; str | int:
+        """
+        Retorna a palavra de um índice da árvore.
+        Ou Retorna o índice de uma palavra.
+
+        Args:
+            item (int | str): índice ou palavra.
+
+        Returns:
+            (str | int): a palavra ou índice da palavra na árvore.
+
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; RadixTree()[0]
+        "word"
+        &gt;&gt;&gt; RadixTree()["word"]
+        0
+        """
+        if isinstance(item, int):
+            if item &lt; 0 or item &gt;= self.size:
+                raise IndexError("Index out of range")
+            for word, i in self.all_words().items():
+                if i == item:
+                    return word
+
+        if isinstance(item, str):
+            return self.index(item)
+        
+        return None
+
+    def delete(self, word: str) -&gt; bool:
+        """
+        Deleta uma palavra da árvore.
+
+        Args:
+            word (str): palavra a ser deletada.
+
+        Returns:
+            bool: True caso a palavra esteja na árvore e for deletada,
+                  False caso a palavra não esteja na árvore.
+
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; RadixTree().delete("word")
+        True
+        """
+        if self.root.delete(word):
+            self.size -= 1
+            return True
+        return False
+
+    def print_tree(self) -&gt; None:
+        """
+        Imprime a árvore.
+
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word2"])
+        &gt;&gt;&gt; RadixTree().print_tree()
+        --- word
+        ------ 1:   (0)
+        ------ 2:   (1)
+        """
+        self.root.print_tree()
+
+    def all_words(self) -&gt; dict:
+        """
+        Retorna todas as palavras da árvore numa lista.
+
+        Returns:
+            list[(str, int)]: lista de palavras e índices.
+
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word2"])
+        &gt;&gt;&gt; RadixTree().all_words()
+        [('word1', 0), ('word2', 1)]
+        """
+        return self.root.all_words()
+
+    def __repr__(self) -&gt; str:
+        """
+        &gt;&gt;&gt; RadixTree()
+        'RadixTree(size=0)'
+        """
+        return f"RadixTree(size={self.size})"
+
+    def __str__(self) -&gt; str:
+        """
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word2"])
+        &gt;&gt;&gt; print(RadixTree())
+        {'word1': 0, 'word2': 1}
+        """
+        return self.all_words().__str__()
+
+    def __contains__(self, word: str) -&gt; bool:
+        """
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; "word" in RadixTree()
+        True
+        """
+        return self.find(word)[0]
+
+    def __iter__(self):
+        """
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word2"])
+        &gt;&gt;&gt; [(word, i) for (word, i) in RadixTree()]
+        [('word1', 0), ('word2', 1)]
+        """
+        return iter(self.all_words())
+
+    def __add__(self, word: str) -&gt; None:
+        """
+        &gt;&gt;&gt; RadixTree() + "word"
+        &gt;&gt;&gt; "word" in RadixTree()
+        True
+        """
+        self.insert(word)
+
+    def __iadd__(self, word: str):
+        """
+        &gt;&gt;&gt; RadixTree() += "word"
+        &gt;&gt;&gt; "word" in RadixTree()
+        True
+        """
+        self.insert(word)
+        return self
+
+    def __sub__(self, word: str) -&gt; bool:
+        """
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; RadixTree() - "word"
+        &gt;&gt;&gt; "word" not in RadixTree()
+        True
+        """
+        return self.delete(word)
+
+    def __isub__(self, word: str):
+        """
+        &gt;&gt;&gt; RadixTree().insert("word")
+        &gt;&gt;&gt; RadixTree() -= "word"
+        &gt;&gt;&gt; "word" not in RadixTree()
+        True
+        """
+        self.delete(word)
+        return self
+
+    def __len__(self) -&gt; int:
+        """
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word2"])
+        &gt;&gt;&gt; len(RadixTree())
+        2
+        """
+        return self.size
+
+    def sort(self, by: str = "index") -&gt; list[(str, int)]:
+        """
+        &gt;&gt;&gt; RadixTree().insert_many(["word1", "word0"])
+        &gt;&gt;&gt; RadixTree().sort(by="index")
+        [('word1', 0), ('word0', 1)]
+        &gt;&gt;&gt; RadixTree().sort(by="word")
+        [('word0', 1), ('word1', 0)]
+        """
+        words = self.all_words()
+        words = [(word, i) for word, i in words.items()]
+        if by == "index":
+            words.sort(key=lambda x: x[1])
+        elif by == "word":
+            words.sort(key=lambda x: x[0])
+        return words
+
+
+class RadixNode:
+    """
+    Um nó da árvore de prefixos compacta.
+    """
+
+    def __init__(
+        self, prefix: str = "", is_leaf: bool = False, index: int = None
+    ) -&gt; None:
+        """
+        Cria um nó da árvore de prefixos compacta.
+
+        Args:
+            prefix (str): prefixo do nó.
+            is_leaf (bool): se o nó é uma folha.
+            index (int): índice da palavra adicionada
+
+        &gt;&gt;&gt; RadixNode()
+        &gt;&gt;&gt; RadixNode("prefix")
+        """
+        # Mapeamento a partir do primeiro caractere do prefixo do nó
+        self.nodes: dict[str, RadixNode] = {}
+        # Um nó será uma folha se a árvore conter sua palavra
+        self.is_leaf = is_leaf
+        self.prefix = prefix
+        self.index = index
+
+    def _match(self, word: str) -&gt; tuple[str, str, str]:
+        """
+        Calcula a substring comum do prefixo do nó e uma palavra.
+
+        Args:
+            word (str): palavra para comparar.
+
+        Returns:
+            (str, str, str): substring comum, prefixo restante, palavra restante.
+
+        &gt;&gt;&gt; RadixNode("myprefix")._match("mystring")
+        ('my', 'prefix', 'string')
+        """
+        x = 0
+        for q, w in zip(self.prefix, word):
+            if q != w:
+                break
+
+            x += 1
+
+        return self.prefix[:x], self.prefix[x:], word[x:]
+
+    def insert(self, word: str, index: int) -&gt; None:
+        # Caso 1: Se a palavra for o prefixo do nó
+        # Solução: Definimos o nó atual como folha
+        if self.prefix == word and not self.is_leaf:
+            self.is_leaf = True
+            self.index = index
+
+        # Caso 2: O nó não tem arestas que tenham um prefixo para a palavra
+        # Solução: Criamos uma aresta do nó atual para um novo
+        # contendo a palavra
+        elif word[0] not in self.nodes:
+            self.nodes[word[0]] = RadixNode(word, True, index)
+
+        else:
+            new_node = self.nodes[word[0]]
+            substring, rest_prefix, rest_word = new_node._match(word)
+
+            # Caso 3: O prefixo do nó é igual ao correspondente
+            # Solução: Inserimos a palavra restante no próximo nó
+            if rest_prefix == "":
+                self.nodes[substring[0]].insert(rest_word, index)
+
+            # Caso 4: A palavra é maior que a correspondência
+            # Solução: Crie um nó entre os dois nós, altere
+            # prefixos e adicione o novo nó para a palavra restante
+            else:
+                new_node.prefix = rest_prefix
+
+                aux_node = self.nodes[substring[0]]
+                self.nodes[substring[0]] = RadixNode(substring, False, index)
+                self.nodes[substring[0]].nodes[rest_prefix[0]] = aux_node
+
+                if rest_word == "":
+                    self.nodes[substring[0]].is_leaf = True
+                    self.nodes[substring[0]].index = index
+                else:
+                    self.nodes[substring[0]].insert(rest_word, index)
+
+    def find(self, word: str) -&gt; tuple[bool, int]:
+        new_node = self.nodes.get(word[0], None)
+        if not new_node:
+            return (False, -1)
+        else:
+            substring, rest_prefix, rest_word = new_node._match(word)
+            # Se houver prefixo restante, a palavra não pode estar na árvore
+            if rest_prefix != "":
+                return (False, -1)
+            # Isso se aplica quando a palavra e o prefixo são iguais
+            elif rest_word == "":
+                return (True, new_node.index) if new_node.is_leaf else (False, -1)
+            # Temos palavras restantes, então verificamos o próximo nó
+            else:
+                return new_node.find(rest_word)
+
+    def delete(self, word: str) -&gt; bool:
+        new_node = self.nodes.get(word[0], None)
+        if not new_node:
+            return False
+        else:
+            substring, rest_prefix, rest_word = new_node._match(word)
+            # Se houver prefixo restante, a palavra não pode estar na árvore
+            if rest_prefix != "":
+                return False, -1
+            # Temos palavras restantes, então verificamos o próximo nó
+            elif rest_word != "":
+                return new_node.delete(rest_word)
+            # Se não for uma folha, não precisamos excluir
+            elif not new_node.is_leaf:
+                return False
+            else:
+                # Excluímos os nós se nenhuma aresta sair deles
+                if len(new_node.nodes) == 0:
+                    del self.nodes[word[0]]
+                    # Nós mesclamos o nó atual com seu único filho
+                    if len(self.nodes) == 1 and not self.is_leaf:
+                        merge_node = next(iter(self.nodes.values()))
+                        self.is_leaf = merge_node.is_leaf
+                        self.prefix += merge_node.prefix
+                        self.index = merge_node.index
+                        self.nodes = merge_node.nodes
+                # Se houver mais de uma aresta, nós apenas a marcamos como não-folha
+                elif len(new_node.nodes) &gt; 1:
+                    new_node.is_leaf = False
+                # Se houver 1 aresta, nós a mesclamos com seu filho
+                else:
+                    merge_node = next(iter(new_node.nodes.values()))
+                    new_node.is_leaf = merge_node.is_leaf
+                    new_node.prefix += merge_node.prefix
+                    new_node.index = merge_node.index
+                    new_node.nodes = merge_node.nodes
+                return True
+
+    def print_tree(self, height: int = 0) -&gt; None:
+        if self.prefix != "":
+            print(
+                "---" * height,
+                (
+                    f"{self.prefix}:  \t({self.index})"
+                    if self.is_leaf
+                    else f"{self.prefix}"
+                ),
+            )
+
+        for value in self.nodes.values():
+            value.print_tree(height + 1)
+
+    def all_words(self) -&gt; dict[int, str]:
+        words = {}
+        if self.is_leaf:
+            words[self.prefix] = self.index
+        for value in self.nodes.values():
+            sufixes = value.all_words()
+            for suffix, index in sufixes.items():
+                words[self.prefix + suffix] = index
+        return words
+
+
+</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
